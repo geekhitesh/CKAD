@@ -1,27 +1,29 @@
-# 17_test-init-container.yaml
-apiVersion: apps/v1
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
+  creationTimestamp: null
+  labels:
+    run: test-init-container
   name: test-init-container
-  namespace: mars
 spec:
   replicas: 1
   selector:
     matchLabels:
-      id: test-init-container
+      run: test-init-container
+  strategy: {}
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        id: test-init-container
+        run: test-init-container
     spec:
-      volumes:
-      - name: web-content
-        emptyDir: {}
       containers:
       - image: nginx:1.17.3-alpine
-        name: nginx
+        name: test-init-container
         volumeMounts:
         - name: web-content
           mountPath: /usr/share/nginx/html
-        ports:
-        - containerPort: 80
+      volumes:
+      - name: web-content
+        emptyDir: {}
+status: {}
