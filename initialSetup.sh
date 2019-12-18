@@ -73,8 +73,7 @@ k run nginx8 --image=nginx --restart=Never -l type=worker
 k create secret generic Secret2 --from-literal=db=mysql --dry-run -o yaml > /opt/course/14/secret2.yaml
 
 ns mars
-curl https://raw.githubusercontent.com/geekhitesh/CKAD/master/question_17.yaml >  /opt/course/17/test-init-container.yaml
 
-k apply -f  /opt/course/17/test-init-container.yaml
-
-
+k apply -f  https://raw.githubusercontent.com/geekhitesh/CKAD/master/question_17.yaml
+k apply -f https://raw.githubusercontent.com/geekhitesh/CKAD/master/question_18_deployment.yaml
+k apply -f https://raw.githubusercontent.com/geekhitesh/CKAD/master/question_18_service.yaml
