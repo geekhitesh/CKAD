@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: manager-api-deployment
+  name: manager-api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: manager-api-pod
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: manager-api-pod
+    spec:
+      containers:
+      - image: nginx
+        name: manager-api-pod
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
