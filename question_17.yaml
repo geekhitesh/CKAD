@@ -26,4 +26,4 @@ spec:
       volumes:
       - name: web-content
         emptyDir: {}
-    status: {}
+      status: {}
