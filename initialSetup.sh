@@ -12,7 +12,7 @@ k create ns  mercury ; k create ns  venus ; k create ns  earth ; k create ns  ma
 k create ns  neptune; k create ns  pluto ; k create ns sun ; k create ns moon
 
 ns mercury
-k run nginx1 --image=nginx --restart=Never -l app=v1
+k run nginx1 --image=nginx --restart=Never -l app=v1 --expose
 k run nginx2 --image=nginx --restart=Never -l app=v2
 
 ns neptune

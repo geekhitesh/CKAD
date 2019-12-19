@@ -1,0 +1,1 @@
+## there is pod nginx1 in mercury namespace exposed via service nginx1. Restrict the access of pod nginx1 from all other namespaces except saturn.
