@@ -14,12 +14,14 @@ k create ns  neptune; k create ns  pluto ; k create ns sun ; k create ns moon
 ns mercury
 k run nginx1 --image=nginx --port=80 --restart=Never -l app=v1 --expose
 k run nginx2 --image=nginx --restart=Never -l app=v2
+k run busybox --image=busybox --dry-run -o yaml -- /bin/sh -c 'while true; do echo "hello" >> /opt/course/16/cleaner.log; sleep 2; done' > /opt/course/16/cleaner.yaml
 
 ns neptune
 k create sa neptune-sa-v2
 k run nginx4 --image=nginx --restart=Never -l app=v2
 k run api-new-c32 --image=ngix --replicas=3
 k set image deploy api-new-c32 *=ngnix:1.16.3
+k run my-happy-shop --image=nginx --restart=Never -l app=my-happy-shop
 
 ns pluto
 k run nginx8 --image=nginx --restart=Never -l app=v1
@@ -46,6 +48,7 @@ k run nginx9 --image=nginx --restart=Never -l type=messenger
 ns moon
 k run nginx8 --image=nginx --restart=Never -l type=worker
 k create secret generic Secret2 --from-literal=db=mysql --dry-run -o yaml > /opt/course/14/secret2.yaml
+k run secret-handler --image=nginx --restart=Never --dry-run -o yaml > /opt/course/14/secret-handler.yaml
 
 ns mars
 k apply -f  https://raw.githubusercontent.com/geekhitesh/CKAD/master/question_17.yaml
