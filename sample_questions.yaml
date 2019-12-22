@@ -1,1 +1,15 @@
-## there is pod nginx1 in mercury namespace exposed via service nginx1. Restrict the access of pod nginx1 from all other namespaces except saturn.
+## 
+#
+#
+#########  
+#   there is pod nginx1 in mercury namespace exposed via service nginx1. Restrict the access of pod nginx1 from all other namespaces except saturn.
+#
+# 
+########  
+#   Deny all traffic from all pods from all namespaces. 
+#   Test it
+#   whitelist all traffic in namespace mercury.
+#   
+########
+#  
+#
