@@ -51,6 +51,7 @@ k run nginx6 --image=nginx --restart=Never -l type=messenger
 k run nginx7 --image=nginx --restart=Never -l app=v1
 k run nginx8 --image=nginx --restart=Never -l type=worker
 k run nginx9 --image=nginx --restart=Never -l type=messenger
+k apply -f https://raw.githubusercontent.com/geekhitesh/CKAD/master/networking_04.yaml
 
 ns moon
 k run nginx8 --image=nginx --restart=Never -l type=worker
