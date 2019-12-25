@@ -7,7 +7,7 @@ mkdir -p /opt/course/13 ; mkdir -p /opt/course/14 ; mkdir -p /opt/course/15 ; mk
 mkdir -p /opt/course/19
 
 k create ns  mercury ; k create ns  venus ; k create ns  earth ; k create ns  mars ; k create ns  jupiter ; k create ns  saturn
-k create ns  neptune; k create ns  pluto ; k create ns sun ; k create ns moon
+k create ns  neptune; k create ns  pluto ; k create ns sun ; k create ns moon ; k create ns netcon
 
 ns mercury
 k run nginx1 --image=nginx --port=80 --restart=Never -l app=v1 --expose
@@ -56,3 +56,9 @@ ns moon
 k run nginx8 --image=nginx --restart=Never -l type=worker
 k create secret generic Secret2 --from-literal=db=mysql --dry-run -o yaml > /opt/course/14/secret2.yaml
 k run secret-handler --image=nginx --restart=Never --dry-run -o yaml > /opt/course/14/secret-handler.yaml
+
+
+ns netcon
+k run frontend --image=nginx --restart=Never -l app=frontend
+k run backend --image=redis --restart=Never -l app=backend
+
