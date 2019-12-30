@@ -6,6 +6,7 @@ mkdir -p /opt/course/7 ;mkdir -p /opt/course/8 ; mkdir -p /opt/course/9 ; mkdir 
 mkdir -p /opt/course/13 ; mkdir -p /opt/course/14 ; mkdir -p /opt/course/15 ; mkdir -p /opt/course/16 ;mkdir -p /opt/course/17 ; mkdir -p /opt/course/18
 mkdir -p /opt/course/19
 
+
 k create ns  mercury ; k create ns  venus ; k create ns  earth ; k create ns  mars ; k create ns  jupiter ; k create ns  saturn
 k create ns  neptune; k create ns  pluto ; k create ns sun ; k create ns moon ; k create ns netcon
 
@@ -63,3 +64,6 @@ ns netcon
 k run frontend --image=nginx --restart=Never -l app=frontend
 k run backend --image=redis --restart=Never -l app=backend
 
+
+## Once all deployments are completed, untaint the master node so that we have two nodes available.
+k taint node master node-role.kubernetes.io-
