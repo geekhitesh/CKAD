@@ -56,7 +56,7 @@ k apply -f https://raw.githubusercontent.com/geekhitesh/CKAD/master/networking_0
 
 ns moon
 k run nginx8 --image=nginx --restart=Never -l type=worker
-k create secret generic Secret2 --from-literal=db=mysql --dry-run -o yaml > /opt/course/14/secret2.yaml
+k create secret generic secret2 --from-literal=db=mysql --dry-run -o yaml > /opt/course/14/secret2.yaml
 k run secret-handler --image=nginx --restart=Never --dry-run -o yaml > /opt/course/14/secret-handler.yaml
 
 
@@ -65,5 +65,6 @@ k run frontend --image=nginx --restart=Never -l app=frontend
 k run backend --image=redis --restart=Never -l app=backend
 
 
-## Once all deployments are completed, untaint the master node so that we have two nodes available.
-k taint node master node-role.kubernetes.io-
+## label nodes master and node01
+k label node master node-name=master
+k label node node01 node-name=node01
