@@ -27,6 +27,7 @@ ns saturn
 k run nginx11 --image=nginx --restart=Never -l app=v1
 k run nginx12 --image=nginx --restart=Never -l app=v2
 k run nginx13 --image=nginx --restart=Never -l app=v2
+k label ns saturn ns=saturn
 
 ns neptune
 k create sa neptune-sa-v2
